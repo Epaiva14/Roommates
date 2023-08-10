@@ -6,9 +6,7 @@ import { useRouter } from 'next/navigation';
 
 const Signup = () => {
 	const router = useRouter();
-
 	const [redirect, setRedirect] = useState(false);
-
 	const [firstName, setFirstName] = useState('');
 	const [lastName, setLastName] = useState('');
 	const [email, setEmail] = useState('');
@@ -88,7 +86,9 @@ const Signup = () => {
 			zipCode
 		};
 		axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/signup`, newUser)
+
 			.then(response => {
+				console.log('----what is this---', response.data);
 				setRedirect(true);
 			})
 			.catch(error => {
@@ -138,19 +138,19 @@ const Signup = () => {
 									<p className="text-muted">Create an account below to get started</p>
 									<div className="input-group mb-3">
 										<span className="input-group-addon"><i className="fa fa-whatsapp"></i></span>
-										<input type="text" className="form-control" placeholder="First Name" value={firstName} onChange={handleFirstName} required/>
+										<input type="text" className="form-control" placeholder="First Name" value={firstName} onChange={handleFirstName} required />
 									</div>
 									<div className="input-group mb-3">
 										<span className="input-group-addon"><i className="fa fa-whatsapp"></i></span>
-										<input type="text" className="form-control" placeholder="Last Name" value={lastName} onChange={handleLastName} required/>
+										<input type="text" className="form-control" placeholder="Last Name" value={lastName} onChange={handleLastName} required />
 									</div>
 									<div className="input-group mb-3">
 										<span className="input-group-addon"><i className="fa fa-mail-forward" aria-hidden="true"></i></span>
-										<input type="email" className="form-control" placeholder="Email" value={email} onChange={handleEmail} required/>
+										<input type="email" className="form-control" placeholder="Email" value={email} onChange={handleEmail} required />
 									</div>
 									<div className="input-group mb-3">
 										<span className="input-group-addon"><i className="fa fa-lock"></i></span>
-										<input type="password" className="form-control" placeholder="Password" value={password} onChange={handlePassword} required/>
+										<input type="password" className="form-control" placeholder="Password" value={password} onChange={handlePassword} required />
 									</div>
 									<div className="input-group mb-3">
 										<span className="input-group-addon"><i className="fa fa-address-book"></i></span>
