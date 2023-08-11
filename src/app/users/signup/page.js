@@ -100,7 +100,11 @@ const Signup = () => {
 
 	};
 
-	if (redirect) { router.push('/users/login'); }
+	useEffect(() => {
+		if (redirect) { router.push('/users/login'); }
+	}, [router, redirect]);
+
+
 	if (error) {
 		return (
 			<div>

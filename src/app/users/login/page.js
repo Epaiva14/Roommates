@@ -26,8 +26,7 @@ export default function Login() {
     const handleSubmit = (e) => {
         e.preventDefault(); // at the beginning of a submit function
 
-        // axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/login`, { email, password })
-        axios.post('localhost:8000/users/login', { email, password })
+        axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/login`, { email, password })
             .then(response => {
                 console.log('===> response.data', response.data);
                 localStorage.setItem('jwtToken', response.data.token);
@@ -46,7 +45,10 @@ export default function Login() {
 
     };
 
-    if (redirect) { router.push('/users/profile'); }
+    useEffect(() => {
+        if (redirect) { router.push('/users/profile'); }
+    }, [router, redirect]);
+
     if (error) {
         return (
             <div>
