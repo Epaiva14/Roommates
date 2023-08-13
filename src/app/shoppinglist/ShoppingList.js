@@ -1,22 +1,19 @@
-import React from "react";
+import React from 'react';
 
-export default function NoteCard({ note }) {
-    console.log('note.creator:', note.creator);
-    console.log('type of note creator:', typeof note.creator)
-    console.log('note.creator.firstName:', note.creator.firstName);
+export default function ShoppingList({ shoppingList }) {
+    console.log('shoppingList:', shoppingList);
 
-    const creatorFirstName = note.creator.length > 0 ? note.creator[0].firstName : '';
     return (
         <div className="card">
             <div className="card-content">
-                {creatorFirstName && (
-                    <p className="title">
-                        {creatorFirstName}
-                    </p>
-                )}
-
+                <p className="title">
+                    {shoppingList.item}
+                </p>
                 <p className="subtitle">
-                    {note.content}
+                    {shoppingList.quantity}
+                </p>
+                <p className="subtitle">
+                    {shoppingList.creator.firstName}
                 </p>
             </div>
             <footer className="card-footer">
