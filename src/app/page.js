@@ -12,6 +12,9 @@ import Layout from './components/layout';
 import ChoreCard from './chores/ChoreCard';
 import NoteCard from './notes/NoteCard';
 import ShoppingList from './shoppinglist/ShoppingList';
+import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import Slideshow from './components/Slideshow';
 
 // we are going to be fetching data from our API and displaying it on
 // the page
@@ -158,45 +161,54 @@ export default function Home() {
 
   return (
     <>
-      <Layout>
-        <section className="hero is-primary is-fullheight">
-          <div className="hero-body">
-            <div className="container">
-              <h1 className="title">
-                Welcome Roommate!
-              </h1>
-              <h2 className="subtitle">
-                This is the home page
-              </h2>
-            </div>
-          </div>
-        </section>
-        <section className="section">
+      <Layout />
+      <section className="hero is-primary is-fullheight heroSection">
+        <div className="hero-body">
           <div className="container">
-            <h1 className="title">Chores</h1>
+            <Slideshow />
+            <h1 className="title">
+              Welcome Roommate!
+            </h1>
+            <h2 className="subtitle">
+              This is the home page
+            </h2>
+          </div>
+        </div>
+      </section>
+      <section className="section choreSection">
+        <div className="container">
+          <h1 className="title">Chores</h1>
+          <Carousel showThumbs={false}>
             <div className="columns">
               {choresList}
             </div>
-          </div>
-        </section>
-        <section className="section">
-          <div className="container">
-            <h1 className="title">Notes</h1>
+          </Carousel>
+        </div>
+      </section>
+
+      <section className="section noteSection">
+        <div className="container">
+          <h1 className="title">Notes</h1>
+          <Carousel showThumbs={false}>
             <div className="columns">
               {notesList}
             </div>
-          </div>
-        </section>
-        <section className="section">
-          <div className="container">
-            <h1 className="title">Shopping List</h1>
+          </Carousel>
+        </div>
+      </section>
+
+      <section className="sectio shoppingSection">
+        <div className="container">
+          <h1 className="title">Shopping List</h1>
+          <Carousel showThumbs={false}>
             <div className="columns">
               {shoppingListItems}
             </div>
-          </div>
-        </section>
+          </Carousel>
+        </div>
+      </section>
 
-      </Layout>
+
     </>
   );
 }

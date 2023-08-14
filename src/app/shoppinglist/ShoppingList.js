@@ -9,29 +9,16 @@ export default function ShoppingList({ shoppingList }) {
                 <p className="title">
                     {shoppingList.item}
                 </p>
+                <hr />
                 <p className="subtitle">
                     {shoppingList.quantity}
                 </p>
                 <p className="subtitle">
-                    {shoppingList.creator.firstName}
+                    Created by: {shoppingList.creator.firstName}
                 </p>
             </div>
             <footer className="card-footer">
-                <p className="card-footer-item">
-                    <span>
-                        View
-                    </span>
-                </p>
-                <p className="card-footer-item">
-                    <span>
-                        Edit
-                    </span>
-                </p>
-                <p className="card-footer-item">
-                    <span>
-                        Delete
-                    </span>
-                </p>
+                <button className="button is-primary choreButton">Got it!</button>
             </footer>
         </div>
     );

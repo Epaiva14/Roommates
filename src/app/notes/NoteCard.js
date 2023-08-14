@@ -11,30 +11,16 @@ export default function NoteCard({ note }) {
             <div className="card-content">
                 {creatorFirstName && (
                     <p className="title">
-                        {creatorFirstName}
+                        From: {creatorFirstName}
                     </p>
                 )}
-
+                <hr />
                 <p className="subtitle">
                     {note.content}
                 </p>
             </div>
             <footer className="card-footer">
-                <p className="card-footer-item">
-                    <span>
-                        View
-                    </span>
-                </p>
-                <p className="card-footer-item">
-                    <span>
-                        Edit
-                    </span>
-                </p>
-                <p className="card-footer-item">
-                    <span>
-                        Delete
-                    </span>
-                </p>
+                <button className="button is-primary choreButton">Understood!</button>
             </footer>
         </div>
     );

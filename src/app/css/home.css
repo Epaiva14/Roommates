@@ -1,7 +1,3 @@
-.homestyle {
-    height: 100%;
-}
-
 .choreButton {
     margin: 10px;
     width: 100%;
@@ -43,4 +39,43 @@
     font-size: 15px;
     font-weight: bold;
     text-align: center;
+}
+
+.choreSection {
+    background-color: aliceblue;
+    border-radius: 100px;
+}
+
+.noteSection {
+    background-color: aliceblue;
+    border-radius: 100px;
+}
+
+.shoppingSection {
+    background-color: aliceblue;
+    border-radius: 100px;
+}
+
+.heroSection {
+    background-color: aliceblue;
+    border-radius: 100px;
+}
+
+.slideshow {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.slideshow img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slideshow img.active {
+    opacity: 1;
 }

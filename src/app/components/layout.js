@@ -13,7 +13,6 @@ export default function Layout({ children }) {
         router.push('/users/login');
     }
 
-
     return (
         <div className='navLayout'>
             <nav className="navbar" role="navigation" aria-label="main navigation">
@@ -66,7 +65,6 @@ export default function Layout({ children }) {
                 </div>
             </nav>
 
-            {children}
         </div>
     )
 }
