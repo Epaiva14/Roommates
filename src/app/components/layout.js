@@ -30,7 +30,10 @@ export default function Layout({ children }) {
                         </a>
 
                         <a className="navbar-item" href='/calendar'>
-                            Documentation
+                            Calendar
+                        </a>
+                        <a className="navbar-item" href='/chat'>
+                            Chat Rooms
                         </a>
 
                         <div className="navbar-dropdown">
@@ -52,8 +55,8 @@ export default function Layout({ children }) {
                 <div className="navbar-end">
                     <div className="navbar-item">
                         <div className="buttons">
-                            <a className="button is-primary" href='/signup'>
-                                <strong>Sign up</strong>
+                            <a className="button is-primary" href='/users/profile'>
+                                <strong>Profile</strong>
                             </a>
                             <a className="button is-light" href='' onClick={logMeOut}>
                                 Log out

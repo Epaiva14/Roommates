@@ -13,39 +13,30 @@ export default function ChoreCard({ chore }) {
 
 
     return (
-        <div className="card">
-            <div className="card-content">
-                <p className="title">
-                    {chore.chore}
-                </p>
-                {chore.assignee && (
-                    <p className="subtitle">
-                        {chore.assignee.firstName}
+        <div className="column is-12">
+            <div className="card">
+                <div className="card-content">
+                    {chore.assignee && (
+                        <p className="chore-subtitle">
+                            From: {chore.assignee.firstName}
+                        </p>
+                    )}
+                    <hr />
+                    <p className="chore-title">
+                        {chore.chore}
                     </p>
-                )}
-                <p className="subtitle">
-                    {formattedDate}
-                </p>
-                <button className="button is-primary">Complete</button>
+                    <hr />
 
+                    <p className="chore-date">
+                        Due: {formattedDate}
+                    </p>
+
+
+                </div>
+                <footer className="card-footer">
+                    <button className="button is-primary choreButton">Complete</button>
+                </footer>
             </div>
-            <footer className="card-footer">
-                <p className="card-footer-item">
-                    <span>
-                        View
-                    </span>
-                </p>
-                <p className="card-footer-item">
-                    <span>
-                        Edit
-                    </span>
-                </p>
-                <p className="card-footer-item">
-                    <span>
-                        Delete
-                    </span>
-                </p>
-            </footer>
         </div>
     );
 }
