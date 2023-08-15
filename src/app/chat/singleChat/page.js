@@ -55,7 +55,8 @@ const ChatRoomPage = () => {
 
 
     return (
-        <Layout>
+        <>
+            <Layout />
             <div className="chat-room-page">
                 <div className="chat-room-container">
                     <div className="chat-room-header">
@@ -81,7 +82,7 @@ const ChatRoomPage = () => {
                 />
                 <button onClick={handleSendMessage}>Send</button>
             </div>
-        </Layout>
+        </>
     );
 };
 

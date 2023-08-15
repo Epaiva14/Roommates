@@ -64,6 +64,7 @@ export default function Chat() {
                 console.log('===> response.data', response.data);
 
                 setChatRooms(response.data.chatRoom);
+                console.log('===> chatRooms', chatRooms);
             })
             .catch(error => {
                 console.error('Error fetching chat rooms:', error);
@@ -74,7 +75,8 @@ export default function Chat() {
 
 
     return (
-        <Layout>
+        <>
+            <Layout />
             <div className='chat'>
                 <h1>Chat Rooms</h1>
                 <ul>
@@ -87,6 +89,7 @@ export default function Chat() {
                     ))}
                 </ul>
             </div>
-        </Layout>
+        </>
+
     );
 }
