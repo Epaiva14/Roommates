@@ -1,9 +1,6 @@
 import React from "react";
 
 export default function NoteCard({ note }) {
-    console.log('note.creator:', note.creator);
-    console.log('type of note creator:', typeof note.creator)
-    console.log('note.creator.firstName:', note.creator.firstName);
 
     const creatorFirstName = note.creator.length > 0 ? note.creator[0].firstName : '';
     return (

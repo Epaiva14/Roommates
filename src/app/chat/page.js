@@ -7,7 +7,6 @@ import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import Layout from '../components/layout';
 import ChatRoom from '../chat/ChatRoom';
-import ChatPage from './ChatData';
 import Link from 'next/link';
 
 // render chat page here

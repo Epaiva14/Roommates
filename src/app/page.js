@@ -104,8 +104,6 @@ export default function Home() {
     await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/chores`)
       .then((res) => res.json())
       .then((chores) => {
-        // console.log('===> chores', data);
-        // console.log('===> chores.chore', data.chore);
         // data is an object
         setChores(chores.chore);
         console.log('===> chores', chores)

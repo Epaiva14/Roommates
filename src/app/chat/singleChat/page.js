@@ -60,7 +60,7 @@ const ChatRoomPage = () => {
             <div className="chat-room-page">
                 <div className="chat-room-container">
                     <div className="chat-room-header">
-                        <h1>Ethan:</h1>
+                        <h1></h1>
                     </div>
                     <div className="chat-room-messages">
                         {isLoading ? (
@@ -82,6 +82,7 @@ const ChatRoomPage = () => {
                 />
                 <button onClick={handleSendMessage}>Send</button>
             </div>
+
         </>
     );
 };
