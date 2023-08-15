@@ -79,3 +79,39 @@
 .slideshow img.active {
     opacity: 1;
 }
+
+.choreInput {
+    width: 15%;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 2px solid black;
+    background-color: #f2f2f2;
+    color: black;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+.choreDate {
+    width: 15%;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 2px solid black;
+    background-color: #f2f2f2;
+    color: black;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+.choreAssignee {
+    width: 15%;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 2px solid black;
+    background-color: #f2f2f2;
+    color: black;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}

@@ -1,7 +1,7 @@
 'use client';
 import 'bulma/css/bulma.min.css';
 import styles from './page.module.css';
-import homeStyle from './css/home.css';
+import './css/home.css';
 import { useEffect, useState } from 'react';
 import jwtDecode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken';
@@ -15,6 +15,7 @@ import ShoppingList from './shoppinglist/ShoppingList';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Slideshow from './components/Slideshow';
+import { ReactDOM } from 'react-dom';
 
 // we are going to be fetching data from our API and displaying it on
 // the page
@@ -22,11 +23,27 @@ import Slideshow from './components/Slideshow';
 export default function Home() {
   // state is what the data is representing in realtime
   const router = useRouter();
+  const [isLoading, setLoading] = useState(false);
   const [data, setData] = useState(null);
   const [chores, setChores] = useState(null);
   const [notes, setNotes] = useState(null);
   const [shoppingList, setShoppingList] = useState(null);
-  const [isLoading, setLoading] = useState(false);
+  const [newChore, setNewChore] = useState({
+    chore: '',
+    dueDate: new Date(),
+    assignee: '',
+  });
+  const [newNote, setNewNote] = useState({
+    note: '',
+    creator: '',
+  });
+  const [newShoppingItem, setNewShoppingItem] = useState({
+    item: '',
+    quantity: '',
+    creator: '',
+  });
+
+
 
   //********************** expiration to log user out */
   if (typeof window !== 'undefined') {
@@ -124,6 +141,55 @@ export default function Home() {
     }
   };
 
+  //*********************** chores */
+  const handleAddChore = async () => {
+    try {
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/chores`, newChore);
+      const createdChore = response.data; // the newly created chore
+      setChores([...chores, createdChore]); // add the chore to the existing chores
+      setNewChore({
+        chore: '',
+        dueDate: new Date(),
+        assignee: '',
+      });
+    } catch (error) {
+      console.error('Error adding chore:', error);
+    }
+  };
+
+  //*********************** notes */
+  const handleAddNote = async () => {
+    try {
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/notes`, newNote);
+      const createdNote = response.data; // the newly created note
+      setNotes([...notes, createdNote]); // add the note to the existing notes
+      setNewNote({
+        note: '',
+        creator: '',
+      });
+    } catch (error) {
+      console.error('Error adding note:', error);
+    }
+  };
+
+  //*********************** shopping list */
+  const handleAddShoppingItem = async () => {
+    try {
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/shoppingList`, newShoppingItem);
+      const createdShoppingItem = response.data; // the newly created shopping item
+      setShoppingList([...shoppingList, createdShoppingItem]); // add the shopping item to the existing shopping items
+      setNewShoppingItem({
+        item: '',
+        quantity: '',
+        creator: '',
+      });
+    } catch (error) {
+      console.error('Error adding shopping item:', error);
+    }
+  };
+
+
+
   if (isLoading) return <p>Loading...</p>;
   if (!data) return <p>No data shown...</p>;
   if (!chores) return <p>No chores shown...</p>;
@@ -164,22 +230,32 @@ export default function Home() {
       <Layout />
       <section className="hero is-primary is-fullheight heroSection">
         <div className="hero-body">
+          <Slideshow />
           <div className="container">
-            <Slideshow />
+
             <h1 className="title">
               Welcome Roommate!
             </h1>
             <h2 className="subtitle">
               This is the home page
             </h2>
+
           </div>
+
         </div>
       </section>
       <section className="section choreSection">
         <div className="container">
           <h1 className="title">Chores</h1>
+          <form>
+            <input className='choreInput' type="text" placeholder="Chore" value={newChore.chore} onChange={(event) => setNewChore({ ...newChore, chore: event.target.value })} /> <br />
+            <input className='choreAssignee' type="text" placeholder="Assignee" value={newChore.assignee} onChange={(event) => setNewChore({ ...newChore, assignee: event.target.value })} /> <br />
+            <input className='choreDate' type="date" placeholder="Due Date" value={newChore.dueDate} onChange={(event) => setNewChore({ ...newChore, dueDate: event.target.value })} />
+            <button className="button is-primary choreButton" onClick={handleAddChore} type='submit'>Add Chore</button>
+          </form>
+
           <Carousel showThumbs={false}>
-            <div className="columns">
+            <div className="columns is-mobile is-centered">
               {choresList}
             </div>
           </Carousel>
@@ -189,6 +265,12 @@ export default function Home() {
       <section className="section noteSection">
         <div className="container">
           <h1 className="title">Notes</h1>
+          <form>
+            <input className='choreInput' type="text" placeholder="Note" value={newNote.note} onChange={(event) => setNewNote({ ...newNote, note: event.target.value })} /> <br />
+            <input className='choreAssignee' type="text" placeholder="Creator" value={newNote.creator} onChange={(event) => setNewNote({ ...newNote, creator: event.target.value })} /> <br />
+            <button className="button is-primary choreButton" onClick={handleAddNote} type='submit'>Add Note</button>
+          </form>
+
           <Carousel showThumbs={false}>
             <div className="columns">
               {notesList}
@@ -200,6 +282,13 @@ export default function Home() {
       <section className="sectio shoppingSection">
         <div className="container">
           <h1 className="title">Shopping List</h1>
+          <form>
+            <input className='choreInput' type="text" placeholder="Item" value={newShoppingItem.item} onChange={(event) => setNewShoppingItem({ ...newShoppingItem, item: event.target.value })} /> <br />
+            <input className='choreInput' type="text" placeholder="Quantity" value={newShoppingItem.quantity} onChange={(event) => setNewShoppingItem({ ...newShoppingItem, quantity: event.target.value })} /> <br />
+            <input className='choreInput' type="text" placeholder="Creator" value={newShoppingItem.creator} onChange={(event) => setNewShoppingItem({ ...newShoppingItem, creator: event.target.value })} /> <br />
+            <button className="button is-primary choreButton" onClick={handleAddShoppingItem} type='submit'>Add Shopping Item</button>
+          </form>
+
           <Carousel showThumbs={false}>
             <div className="columns">
               {shoppingListItems}
@@ -212,3 +301,4 @@ export default function Home() {
     </>
   );
 }
+
