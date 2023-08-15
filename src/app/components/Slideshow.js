@@ -17,12 +17,14 @@ const Slideshow = () => {
 
     const images = [image1, image2, image3];
 
+    console.log('images', images);
+
     return (
         <div className="slideshow">
             {images.map((image, index) => (
                 <img
                     key={index}
-                    src={image}
+                    src={image.default}
                     alt={`Image ${index + 1}`}
                     className={index === currentImageIndex ? 'active' : ''}
                 />
