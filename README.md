@@ -142,8 +142,8 @@ let choresList = null;
   }
 ```
 ## Wireframes
-[Wireframes](src/app/components/images/Untitled-2023-08-08-2101.png)
-[Entity Relationship Diagram](src/app/components/images/drawSQL-roomates-export-2023-08-15.png)
+- ![Wireframes](src/app/components/images/Untitled-2023-08-08-2101.png)
+- ![Entity Relationship Diagram](src/app/components/images/drawSQL-roomates-export-2023-08-15.png)
 
 *****************
 
