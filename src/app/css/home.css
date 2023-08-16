@@ -131,10 +131,16 @@
 .chat-room-messages {
     margin: 10px;
     color: aliceblue;
-    background-color: cadetblue;
+    background-color: aliceblue;
 }
 
 .message {
+    margin: 10px;
+    color: aliceblue;
+    background-color: cadetblue;
+}
+
+.message-header {
     margin: 10px;
     color: aliceblue;
     background-color: cadetblue;
@@ -150,4 +156,9 @@
     color: black;
     cursor: pointer;
     transition-duration: 0.4s;
+}
+
+.__className_0ec1f4 {
+    background-color: aliceblue;
+    background: linear-gradient(90deg, aliceblue 0%, aliceblue 50%, rgba(178, 9, 9, 0) 100%);
 }
