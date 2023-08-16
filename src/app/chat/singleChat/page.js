@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import MessageContent from '../ChatRoom';
 import axios from 'axios';
-
+import '../../../app/css/home.css';
 const ChatRoomPage = () => {
     const router = useRouter();
     const [messages, setMessages] = useState([]);
@@ -75,12 +75,13 @@ const ChatRoomPage = () => {
             </div>
             <div className="chat-room-input">
                 <input
+                    className='chatMessageInput'
                     type="text"
                     placeholder="Type your message..."
                     value={newMessage}
                     onChange={(e) => setNewMessage(e.target.value)}
                 />
-                <button onClick={handleSendMessage}>Send</button>
+                <button className='choreButton' onClick={handleSendMessage}>Send</button>
             </div>
 
         </>

@@ -8,6 +8,7 @@ import axios from 'axios';
 import Layout from '../components/layout';
 import ChatRoom from '../chat/ChatRoom';
 import Link from 'next/link';
+import '../../app/css/home.css';
 
 // render chat page here
 export default function Chat() {
@@ -77,12 +78,12 @@ export default function Chat() {
         <>
             <Layout />
             <div className='chat'>
-                <h1>Chat Rooms</h1>
+                <h1 className='chatRoomNames'>Chat Rooms</h1>
                 <ul>
                     {chatRooms.map(chat => (
                         <li key={chat._id}>
                             <Link href={`/chat/singleChat?roomId=${chat._id}`}>
-                                <h1>{chat.roomName}</h1>
+                                <h1 className='chatRoomNames'>{chat.roomName}</h1>
                             </Link>
                         </li>
                     ))}
