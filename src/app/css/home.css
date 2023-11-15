@@ -162,3 +162,7 @@
     background-color: aliceblue;
     background: linear-gradient(90deg, aliceblue 0%, aliceblue 50%, rgba(178, 9, 9, 0) 100%);
 }
+
+.heroSection {
+    background-color: cadetblue;
+}
